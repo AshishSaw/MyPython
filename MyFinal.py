@@ -6,10 +6,10 @@ def readfile(filepath, filename, filetype):
     storage_account_access_key = 'mhW4Qbdtp+gsto/lFTypM0eqJTy5u/OtVuzVPQ23+fzkSPHN3KARvw+tSATvIETvAXmHhLobDoYbHVzMny3zFA=='
     spark.conf.set('fs.azure.account.key.' + storage_account_name + '.blob.core.windows.net', storage_account_access_key)
 
-  if fileType == "csv":
-      return spark.read.csv(filepath + filename, header = "true", inferSchema = "true")
-  elif filetype == "parquet":
-      return spark.read.format("Parquet").load(filepath + filename)
+    if fileType == "csv":
+        return spark.read.csv(filepath + filename, header = "true", inferSchema = "true")
+    elif filetype == "parquet":
+        return spark.read.format("Parquet").load(filepath + filename)
 
 #Write Parquet file to Raw Zone
 def writefile(dataframe, filepath, filename, filetype):
